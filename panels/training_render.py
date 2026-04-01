@@ -1,14 +1,10 @@
-def setup_data_binding(context):
-    """Initializes data bindings for the spreadsheet."""
-    pass
-
 class KeyframeSpreadsheetPanel:
-    """The UI panel definition for the spreadsheet."""
     id = "TIMELINE_PT_spreadsheet"
     label = "Keyframe Spreadsheet"
-    # Ensure training_render.rml exists in your plugin folder
+    # This category determines which sidebar the tab appears in
+    category = "LichtFeld" 
     panel_path = "training_render.rml" 
 
     def draw(self, context):
-        # UI is defined in the RML file
+        # The Studio uses the .rml file for the actual UI
         pass

@@ -1,15 +1,16 @@
-import lfs
+try:
+    import studio
+except:
+    import lfs_studio as studio
 
 def setup_data_binding():
-    # Placeholder for your data binding logic
     pass
 
-class KeyframeSpreadsheetPanel(lfs.types.Panel):
-    id = "TIMELINE_PT_spreadsheet"
-    label = "Keyframe Spreadsheet"
-    # Make sure this .rml file exists in your plugin folder
-    panel_path = "training_render.rml" 
-
-    def draw(self):
-        # UI is handled by RML, but this method is required by the API
-        pass
+class KeyframeSpreadsheetPanel(studio.Panel):
+    bl_idname = "TIMELINE_PT_spreadsheet"
+    bl_label = "Keyframe Spreadsheet"
+    
+    def draw(self, context):
+        layout = self.layout
+        # Spreadsheet-style layout logic here
+        layout.label(text="Keyframe Editor")

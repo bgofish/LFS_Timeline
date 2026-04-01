@@ -4,14 +4,11 @@ from .operators.start import StartEditorOperator
 def register(context):
     setup_spreadsheet_data(context)
     
-    # Check if the registry has the specific 'register_panel' method
-    if hasattr(context.registry, 'register_panel'):
-        context.registry.register_panel(KeyframeSpreadsheetPanel)
-    else:
-        context.registry.register_class(KeyframeSpreadsheetPanel)
-        
-    context.registry.register_class(StartEditorOperator)
-    print("Spreadsheet Panel Registered")
+    # register_panel is specifically for sidebar UI elements
+    context.registry.register_panel(KeyframeSpreadsheetPanel)
+    context.registry.register_operator(StartEditorOperator)
+    
+    print("Spreadsheet UI Registered")
 
 def initialize(context):
     register(context)
